@@ -17,4 +17,5 @@ public class Converter {
     public static long stepToKilocalories(int countStep){
         return Math.round((double) countStep * CALORIE_ONE_STEP / KILOCALORIES);
     }
+
 }

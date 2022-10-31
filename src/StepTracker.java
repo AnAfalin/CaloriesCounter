@@ -7,7 +7,7 @@ public class StepTracker {
 
     private class MonthData {
         String title;
-        int[] days = new int[30];
+        int[] days;
 
         public MonthData(String title) {
             this.title = title;
@@ -96,8 +96,8 @@ public class StepTracker {
 
     private void printStatisticMonth(int indexMonth){
         int[] daysMonth = monthToData[indexMonth].days;
-        int countStepMonth = 0;
-        int maxStepMonth = daysMonth[0];
+        int countStepMonth = 0;         //6000
+        int maxStepMonth = daysMonth[0];   //3000
 
         for (int day : daysMonth) {
             countStepMonth = countStepMonth + day;  //countMonthStep +=day
@@ -132,19 +132,19 @@ public class StepTracker {
 
     private int bestSeriesDays(int indexMonth){
         int[] daysMonth = monthToData[indexMonth].days;
-        int countDays = 0;
-        int currentDays = 0;
+        int bestDaysSeries = 0; //переменная лучшая серии дней за месяц
+        int currentBestSeries = 0; //текущая серия дней за месяц
         for (int i = 0; i < daysMonth.length; i++) {
             if(daysMonth[i] >= goalSteps){
-                currentDays ++;
+                currentBestSeries ++;
             }else {
-                if(currentDays > countDays){
-                    countDays = currentDays;
-                    currentDays = 0;
+                if(currentBestSeries > bestDaysSeries){
+                    bestDaysSeries = currentBestSeries;
                 }
+                currentBestSeries = 0;
             }
         }
-        return countDays;
+        return bestDaysSeries;
     }
 
     private void printMonthCountSteps(int indexMonth){
@@ -158,8 +158,7 @@ public class StepTracker {
             }
         }
     }
-
-
+    
 }
 
 

@@ -11,11 +11,10 @@ public class MenuCaloriesCounter {
 
 
     public void start() {
-        System.out.println(MENU);
 
-        int userInput = scanner.nextInt();
-
-        while (userInput != 0) {
+        while (true) {
+            System.out.println(MENU);
+            int userInput = scanner.nextInt();
             //обработка разных случаев
             switch (userInput) {
                 case 1 ->
@@ -28,16 +27,11 @@ public class MenuCaloriesCounter {
                     //изменить цель по количеству шагов в день
                         stepTracker.changeGoalSteps();
                 case 4 -> {
-                    System.out.println("Приложение закрыто.");
+                    System.out.println("Программа завершена");
                     return;
                 }
+                default -> System.out.println("Ввод некорректен. Повторите попытку.");
             }
-            System.out.println(MENU);
-            userInput = scanner.nextInt();
         }
-
-        System.out.println("Программа завершена");
     }
-
-
 }
