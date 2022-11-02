@@ -11,6 +11,7 @@ public class MenuCaloriesCounter {
 
 
     public void start() {
+        stepTracker.setScanner(scanner);
 
         while (true) {
             System.out.println(MENU);

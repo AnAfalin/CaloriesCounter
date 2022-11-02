@@ -10,11 +10,11 @@ public class Converter {
     private static final int CALORIE_ONE_STEP = 50;
     private static final int KILOCALORIES = 1000;
 
-    public static long stepToKilometers(int countStep){
+    public static long getKilometers(int countStep){
         return Math.round((double) countStep * CENTIMETER_ONE_STEP/ METERS_ONE_CENTIMETRE / KILOMETERS_ONE_METRE);
     }
 
-    public static long stepToKilocalories(int countStep){
+    public static long getCalories(int countStep){
         return Math.round((double) countStep * CALORIE_ONE_STEP / KILOCALORIES);
     }
 

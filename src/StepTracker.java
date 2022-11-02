@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class StepTracker {
     private int goalSteps = 10_000;     //цель по умолчанию
     private MonthData[] monthToData;
-    private static Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
 
     private class MonthData {
         String title;
@@ -21,6 +21,10 @@ public class StepTracker {
         //monthToData[0] - январь
         //monthToData[1] - февраль ...
         fillMonthData();
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
     }
 
     //метод изменения цели шагов
@@ -107,8 +111,8 @@ public class StepTracker {
         }
 
         long averageNumberStep = Math.round((double) countStepMonth / daysMonth.length);
-        long distance = Converter.stepToKilometers(countStepMonth);
-        long kilocalories = Converter.stepToKilocalories(countStepMonth);
+        long distance = Converter.getKilometers(countStepMonth);
+        long kilocalories = Converter.getCalories(countStepMonth);
         int countBestDays = bestSeriesDays(indexMonth);
 
         System.out.println(monthToData[indexMonth].title);
